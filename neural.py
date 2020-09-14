@@ -12,6 +12,7 @@ clf.fit(input_train,output_train)
 
 class hive():
     def train(self, classifier, X_data, y):
+        classifier = net_do(X_data,y)
         classifier.fit(X=X_data, y=y)
 
     def predict(self, data, clf):
