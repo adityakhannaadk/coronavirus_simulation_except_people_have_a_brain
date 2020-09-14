@@ -2,6 +2,9 @@
 from neural import hive
 import dat_str as dsr
 
+# Train neural network hive first time (the same neural network gets used for every mover hence hive mind)
+xdata = [[100,1000,100],[150,800,200],[150,800,300]]
+ydata = [0,1,1.5] 
 def point(xlimit,ylimit):
     import random
     x = random.uniform(0,xlimit)
@@ -116,11 +119,13 @@ def Move(xlimit,ylimit):
     """ 
     Move movers using neural network (Aditya Khanna)
     """
-    dsr.strat_rad(hive.predict([List.count(666),List.count(True),List.count(115)]))
+    v = dsr.strat_rad(hive.predict([List.count(666),List.count(True),List.count(115)]))
+    xx = v[0]
+    yy = v[1]
     global df, MoversList
     for i in MoversList:
         if (df.loc[i,'Covid-19']==115) or (df.loc[i,'Covid-19']==666) : MoversList.remove(i)
-        df.loc[i,'X'], df.loc[i,'Y'] = (df.loc[i,'X']+hive.get_move_dist([]))%xlimit, (df.loc[i,'Y']+random.uniform(1,ylimit/3))%ylimit
+        df.loc[i,'X'], df.loc[i,'Y'] = (df.loc[i,'X']+,yy)%xlimit, (df.loc[i,'Y']+xx)%ylimit
 def check(i,j):
     import math
     global df, YesterdayPatients, Distlimit
