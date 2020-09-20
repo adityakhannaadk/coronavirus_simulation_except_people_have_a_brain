@@ -10,3 +10,6 @@ I did try to make it as efficient in terms of computational complexity as possib
 * Only get the response radius and use an algorithm pick apart x and y movements
 
 However, remember that for 1000 movers, even a very basic MLP will still run slowly. 
+
+# Credits
+The simulation graphic was written by someone else. I will link it when I find it again
